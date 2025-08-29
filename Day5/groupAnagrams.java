@@ -3,32 +3,32 @@ package Day5;
 import java.util.*;
 
 //Approach 1 : With Sorting
-public class groupAnagrams {
-    public static List<List<String>> groupAnagram(String[] strs) {
+// public class groupAnagrams {
+//     public static List<List<String>> groupAnagram(String[] strs) {
         
-        Map<String,List<String>> map = new HashMap<>();
+//         Map<String,List<String>> map = new HashMap<>();
 
-        for(String str : strs){
-            char[] ch = str.toCharArray();
-            Arrays.sort(ch);
-            String s = new String(ch);
+//         for(String str : strs){
+//             char[] ch = str.toCharArray();
+//             Arrays.sort(ch);
+//             String s = new String(ch);
 
-            if(!map.containsKey(s))
-                map.put(s,new ArrayList<>());
+//             if(!map.containsKey(s))
+//                 map.put(s,new ArrayList<>());
 
-            map.get(s).add(str);
+//             map.get(s).add(str);
             
-        }
-        return new ArrayList<>(map.values());
-    }
+//         }
+//         return new ArrayList<>(map.values());
+//     }
 
-    public static void main(String[] args) {
-        String []strs = {"eat","tea","tan","ate","nat","bat"};
-        System.out.println(groupAnagram(strs));
-    }
+//     public static void main(String[] args) {
+//         String []strs = {"eat","tea","tan","ate","nat","bat"};
+//         System.out.println(groupAnagram(strs));
+//     }
 
     
-}
+// }
 
 //Approach 2: Without Sorting
 public class groupAnagrams{
