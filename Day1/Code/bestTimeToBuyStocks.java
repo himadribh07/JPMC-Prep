@@ -1,3 +1,4 @@
+package Code;
 class Solution1 {
     public static int bestTimeToBuyStocks(int[] prices) {
         int i=0,j=1,profit =-1,mini=Integer.MAX_VALUE,maxi=Integer.MIN_VALUE;
