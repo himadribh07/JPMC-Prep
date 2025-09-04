@@ -19,7 +19,7 @@ class DepositTransaction extends Transaction{
     double amount;
 
     public void execute(){
-        account.debit(amount);
+        account.credit(amount);
     }
 }
 
@@ -28,7 +28,7 @@ class WithdrawTransaction extends Transaction{
     double amount;
 
     public void execute(){
-        account.credit(amount);
+        account.debit(amount);
     }
 }
 
