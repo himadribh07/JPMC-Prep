@@ -39,10 +39,11 @@ public class partitionEqualSubsetSum {
         for(int i:nums){
             sum+=i;
         }
-
-        Arrays.fill(t,-1);
         if(sum%2!=0)
             return false;
+
+        for(int [] row:t)
+            Arrays.fill(row,-1);
         
         return dfs(nums,sum/2,0);
     }
@@ -61,21 +62,14 @@ public class partitionEqualSubsetSum {
         
         boolean take = false;
         if(nums[idx]<=sum)
-            take = dfs(nums,sum-nums[idx],idx++);
-        boolean notTake = dfs(nums,sum,idx++);
+            take = dfs(nums,sum-nums[idx],idx+1);
+        boolean notTake = dfs(nums,sum,idx+1);
 
         t[idx][sum] = (take || notTake) ?1 :0;
 
         return (take || notTake);
         
-        
-        
     }
-
-
-
-
-
 
     public static void main(String[] args) {
         int [] nums = {1,2,5};
