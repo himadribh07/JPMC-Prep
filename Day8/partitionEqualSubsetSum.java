@@ -45,30 +45,28 @@ public class partitionEqualSubsetSum {
         for(int [] row:t)
             Arrays.fill(row,-1);
         
-        return dfs(nums,sum/2,0);
+        return helper(nums,sum/2,0);
     }
 
-    static boolean dfs(int [] nums, int sum, int idx){
+    static boolean helper(int[] nums, int sum, int idx) {
 
-        if(sum==0)
+        if (sum == 0)
             return true;
-        
-        if(idx>=nums.length)
+
+        if (idx >= nums.length)
             return false;
-        
-        
-        if(t[idx][sum]!=-1)
-            return t[idx][sum]==1;
-        
+
+        if (t[idx][sum] != -1)
+            return t[idx][sum] == 1;
+
         boolean take = false;
-        if(nums[idx]<=sum)
-            take = dfs(nums,sum-nums[idx],idx+1);
-        boolean notTake = dfs(nums,sum,idx+1);
+        if (nums[idx] <= sum)
+            take = helper(nums, sum - nums[idx], idx + 1);
+        boolean notTake = helper(nums, sum, idx + 1);
 
-        t[idx][sum] = (take || notTake) ?1 :0;
+        t[idx][sum] = (take || notTake) ? 1 : 0;
 
-        return (take || notTake);
-        
+        return take || notTake;
     }
 
     public static void main(String[] args) {
